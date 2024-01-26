@@ -20,10 +20,10 @@ def load_jobs_from_db():
 
     return jobs
 
-def load_job_from_db(id):
+def load_job_from_db(var):
 	with engine.connect() as conn:
 		# String formating for query
-		result = conn.execute(text("SELECT * FROM jobs WHERE id = :id"), {'id': id})
+		result = conn.execute(text("SELECT * FROM jobs WHERE id = :var"), {'var': var})
 		rows = result.all()
 		if len(rows) == 0:
 			return None
